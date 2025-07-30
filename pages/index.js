@@ -5,13 +5,15 @@ import TradeBox from "@/components/TradeBox";
 
 export default function Home() {
   return (
-    <div className="flex flex-col max-w-md mx-auto min-h-screen bg-[#fcfcfc]">
-      <main className=" flex-grow">
+    <div className="flex flex-col max-w-md mx-auto h-screen bg-[#fcfcfc]">
+      <header className="h-18 shrink-0">
         <Header />
+      </header>
+      <main className="flex-1 overflow-y-auto">
         <AssetCard />
         <TradeBox />
       </main>
-      <footer>
+      <footer className="h-18 shrink-0">
         <BottomNav />
       </footer>
     </div>

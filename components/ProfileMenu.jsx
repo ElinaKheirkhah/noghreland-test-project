@@ -1,6 +1,53 @@
 import React from "react";
 
 export default function ProfileMenu() {
+  const menuItems = [
+    {
+      title: "خانه",
+      icon: "/assets/icons/home-menu.svg",
+      active: true,
+    },
+    {
+      title: "معاملات",
+      icon: "/assets/icons/arrange-circle-2-menu.svg",
+    },
+    {
+      title: "گزارات",
+      icon: "/assets/icons/chart-menu.svg",
+    },
+    {
+      title: "تحویل فیزیکی",
+      icon: "/assets/icons/Bar-menu.svg",
+    },
+    {
+      title: "پروفایل",
+      icon: "/assets/icons/profile-circle-menu.svg",
+    },
+    {
+      title: "کیف پول",
+      icon: "/assets/icons/wallet-menu.svg",
+    },
+    {
+      title: "واریز و برداشت",
+      icon: "/assets/icons/bitcoin-convert-menu.svg",
+      border: true,
+    },
+    {
+      title: "اعتماد به ما",
+      icon: "/assets/icons/verify-menu.svg",
+    },
+    {
+      title: "ارتباط با پشتیبانی",
+      icon: "/assets/icons/call-menu.svg",
+      border: true,
+    },
+    {
+      title: "خروج از حساب کاربری",
+      icon: "/assets/icons/logout-menu.svg",
+      danger: true,
+    },
+  ];
+
   return (
     <div className="container">
       <div className="w-[240px] h-[545px] bg-white fixed ml-3 shadow-xl rounded-xl z-50 pr-4 pl-4">
@@ -23,96 +70,32 @@ export default function ProfileMenu() {
             />
           </div>
         </div>
-        <div className=" pt-4 flex flex-col gap-4.5 pr-1">
-          <div className="flex justify-end items-center gap-2 bg-[#FAFAFA] border border-[#114EF61F] rounded pr-1">
-            <button className="cursor-pointer">
-              <div className="text-[14px] leading-6 font-semibold text-[#0A0A0A]">
-                خانه
-              </div>
-            </button>
-            <img src="/assets/icons/home-menu.svg" className="w-5 h-5" />
-          </div>
-          <div className="flex justify-end items-center gap-2">
-            <button className="cursor-pointer">
-              <div className="text-[14px] leading-6 font-semibold text-[#404040]">
-                معاملات
-              </div>
-            </button>
-            <img
-              src="/assets/icons/arrange-circle-2-menu.svg"
-              className="w-5 h-5"
-            />
-          </div>
-          <div className="flex justify-end items-center gap-2">
-            <button className="cursor-pointer">
-              <div className="text-[14px] leading-6 font-semibold text-[#404040]">
-                گزارشات
-              </div>
-            </button>
-            <img src="/assets/icons/chart-menu.svg" className="w-5 h-5" />
-          </div>
-          <div className="flex justify-end items-center gap-2">
-            <button className="cursor-pointer">
-              <div className="text-[14px] leading-6 font-semibold text-[#404040]">
-                تحویل فیزیکی
-              </div>
-            </button>
-            <img src="/assets/icons/Bar-menu.svg" className="w-5 h-5" />
-          </div>
-          <div className="flex justify-end items-center gap-2">
-            <button className="cursor-pointer">
-              <div className="text-[14px] leading-6 font-semibold text-[#404040]">
-                پروفایل
-              </div>
-            </button>
-            <img
-              src="/assets/icons/profile-circle-menu.svg"
-              className="w-5 h-5"
-            />
-          </div>
-          <div className="flex justify-end items-center gap-2">
-            <button className="cursor-pointer">
-              <div className="text-[14px] leading-6 font-semibold text-[#404040]">
-                کیف پول
-              </div>
-            </button>
-            <img src="/assets/icons/wallet-menu.svg" className="w-5 h-5" />
-          </div>
-          <div className="flex justify-end items-center gap-2 border-b border-[#A1A1A1] pb-3">
-            <button className="cursor-pointer">
-              <div className="text-[14px] leading-6 font-semibold text-[#404040]">
-                واریز و برداشت
-              </div>
-            </button>
-            <img
-              src="/assets/icons/bitcoin-convert-menu.svg"
-              className="w-5 h-5"
-            />
-          </div>
-          <div className="flex justify-end items-center gap-2">
-            <button className="cursor-pointer">
-              <div className="text-[14px] leading-6 font-semibold text-[#404040]">
-                اعتماد به ما
-              </div>
-            </button>
-            <img src="/assets/icons/verify-menu.svg" className="w-5 h-5" />
-          </div>
-          <div className="flex justify-end items-center gap-2 border-b border-[#A1A1A1] pb-3">
-            <button className="cursor-pointer">
-              <div className="text-[14px] leading-6 font-semibold text-[#404040]">
-                ارتباط با پشتیبانی
-              </div>
-            </button>
-            <img src="/assets/icons/call-menu.svg" className="w-5 h-5" />
-          </div>
-          <div className="flex justify-end items-center gap-2">
-            <button className="cursor-pointer">
-              <div className="text-[14px] leading-6 font-semibold text-[#E7000B]">
-                خروج از حساب کاربری
-              </div>
-            </button>
-            <img src="/assets/icons/logout-menu.svg" className="w-5 h-5" />
-          </div>
+
+        <div className="pt-4 flex flex-col gap-4.5 pr-1">
+          {menuItems.map((item) => (
+            <div
+              className={`flex justify-end items-center gap-2 ${
+                item.active
+                  ? "bg-[#FAFAFA] border border-[#114EF61F] rounded pr-1"
+                  : ""
+              } ${item.border ? "border-b border-[#A1A1A1] pb-3" : ""}`}
+            >
+              <button className="cursor-pointer">
+                <div
+                  className={`text-[14px] leading-6 font-semibold ${
+                    item.danger
+                      ? "text-[#E7000B]"
+                      : item.active
+                      ? "text-[#0A0A0A]"
+                      : "text-[#404040]"
+                  }`}
+                >
+                  {item.title}
+                </div>
+              </button>
+              <img src={item.icon} className="w-5 h-5" />
+            </div>
+          ))}
         </div>
       </div>
     </div>
